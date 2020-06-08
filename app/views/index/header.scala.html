@@ -1,0 +1,145 @@
+<div class="page-header navbar navbar-fixed-top" style="word-wrap: break-word;
+    min-width: 500px;
+    overflow: hidden;">
+        <!-- BEGIN HEADER INNER -->
+
+    <div class="page-header-inner" >
+            <!-- BEGIN LOGO -->
+        <div class="page-logo" style="text-align: center;
+            line-height: 50px;">
+            <i class="logo-header">NCU 生信分析平台</i>
+        </div>
+
+
+        <a href="@routes.AdminController.platformHome()" class="page-option">
+            <div class="page-menu-left" id="platformHome">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-home logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">主页</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("diversity")" class="page-option">
+            <div class="page-menu-left diversity" id="diversity">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">多样性</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("p3bacter")" class="page-option">
+            <div class="page-menu-left p3bacter" id="p3bacter" >
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">细菌基因组</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("metabolite")" class="page-option">
+            <div class="page-menu-left metabolite" id="metabolite">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">代谢组</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("protein")" class="page-option">
+            <div class="page-menu-left protein" id="protein">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">蛋白质组</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("parametron")" class="page-option">
+            <div class="page-menu-left parametron" id="parametron">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">转录组</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("meta")" class="page-option">
+            <div class="page-menu-left meta" id="meta">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">宏基因组</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.platform("network")" class="page-option">
+            <div class="page-menu-left network" id="network">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">网络分析</span>
+            </div>
+        </a>
+
+
+    </div>
+
+
+
+
+
+    <a href="@routes.LoginController.logout()" class="page-option">
+        <div class="page-menu-right" id="password">
+            <div style="margin-top: 5px">
+                <i class="fa fa-home logo-right" style="font-size: 20px"></i>
+            </div>
+            <span class="page-header-text"> 退出登录</span>
+        </div>
+    </a>
+
+    <a href="@routes.PwdController.pwdPage()" class="page-option">
+        <div class="page-menu-right" id="pwdPage">
+            <div style="margin-top: 5px">
+                <i class="fa fa-edit logo-right" style="font-size: 20px"></i>
+            </div>
+            <span class="page-header-text"> 修改密码</span>
+        </div>
+    </a>
+
+    <div  style="
+        width: 380px;
+        text-align: center;
+        height: 53px;
+        margin: 0;
+        padding: 0;
+        float: right;">
+        <div class="process-bar skin-green">
+            <div class="pb-wrapper">
+                <div class="pb-highlight"></div>
+                <div class="pb-container">
+                    <div class="pb-text"></div>
+                    <div class="pb-value"></div>
+                </div>
+            </div>
+        </div>
+        <div class="disk-text"></div>
+    </div>
+</div>
+
+
+<script>
+        $(function () {
+            $.ajax({
+                url:"/unix/getDisk",
+                type: "get",
+                dataType:"json",
+                success: function (data) {
+                    $(".pb-value").width( data.per +'%');
+                    $(".pb-text").html(data.per +'%');
+                    $(".disk-text").html("已用 "+data.use+" G / 总共 " + data.all +" G")
+                }
+            })
+        })
+</script>

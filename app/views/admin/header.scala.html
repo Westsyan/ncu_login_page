@@ -1,0 +1,78 @@
+<div class="page-header navbar navbar-fixed-top"  style="word-wrap:break-word;min-width:500px;overflow:hidden;">
+        <!-- BEGIN HEADER INNER -->
+
+    <div class="page-header-inner" >
+            <!-- BEGIN LOGO -->
+        <div class="page-logo" style="text-align: center;
+            line-height: 50px;">
+            <i class="logo-header">NCU 生信分析平台</i>
+        </div>
+
+
+        <a href="@routes.AdminController.adminPage()" class="page-option">
+            <div class="page-menu-left" id="adminPage">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-home logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">账号管理</span>
+            </div>
+        </a>
+
+        <a href="@routes.HomeController.adminSpecies("parametron")" class="page-option">
+            <div class="page-menu-left parametron" id="parametron">
+                <div style="margin-top: 5px">
+                    <i class="fa fa-genderless logo-left" style="font-size: 20px"></i>
+                </div>
+                <span class="page-header-text">有参转录组</span>
+            </div>
+        </a>
+
+    </div>
+
+
+    <a href="@routes.LoginController.logout()" class="page-option">
+        <div class="page-menu-right" id="password">
+            <div style="margin-top: 5px">
+                <i class="fa fa-home logo-right" style="font-size: 20px"></i>
+            </div>
+            <span class="page-header-text"> 退出登录</span>
+        </div>
+    </a>
+
+    <a href="@routes.PwdController.pwdAdminPage()" class="page-option">
+        <div class="page-menu-right" id="pwdAdminPage">
+            <div style="margin-top: 5px">
+                <i class="fa fa-edit logo-right" style="font-size: 20px"></i>
+            </div>
+            <span class="page-header-text"> 修改密码</span>
+        </div>
+    </a>
+</div>
+
+
+<script>
+
+                          let href = window.location.href;
+                          let plat = href.split('/')[4];
+                          $("#" + plat).addClass("action");
+
+                          function random4() {
+                              return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+                          }
+
+                          if (window.name == "" && plat == "adminHome") {
+                              let uuid = random4() + random4();
+                              window.name = uuid;
+                          }
+
+                          let host = window.location.hostname;
+
+                          let parametronHtml =  "http://" + host +":8002/parametron/species/admin/toSpecies";
+
+                          $(".parametron").click(function () {
+                              $.cookie("parametron" + window.name,parametronHtml)
+                          });
+
+
+
+</script>

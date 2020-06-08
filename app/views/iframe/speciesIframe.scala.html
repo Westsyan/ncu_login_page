@@ -1,0 +1,46 @@
+@()(implicit session: Session)
+    @admin.main("") {
+
+        <div class="page-content-wrapper">
+
+            <div style="position: fixed;
+                height: 100%;
+                margin: 0;
+                width: 100%;
+                padding-bottom: 74px;
+    ">
+                <iframe src="" width="100%"
+                height="100%" style="border: none" id="iframe">
+                </iframe>
+
+            </div>
+        </div>
+
+
+        <script>
+
+                var cookie1 = plat + window.name;
+
+                if (window.name == "") {
+                    var uuid2 = random4() + random4();
+                    window.name = uuid2;
+                    cookie1 = plat + uuid2;
+                    $.cookie(cookie1, parametronHtml)
+                }
+
+
+                window.addEventListener('message', function (e) {
+                    var src = e.data;
+                    $.cookie(cookie1, src);
+                }, false);
+
+                $(function () {
+                    var src = $.cookie(cookie1);
+                    $("#iframe").attr("src", src);
+                })
+
+
+        </script>
+
+
+    }

@@ -1,0 +1,181 @@
+@(host: String)(implicit session: Session)
+    @index.main("主页") {
+
+        <style>
+                .borders {
+                    width: 300px;
+                    height: 250px;
+                    border: 1px solid #333333;
+                    border-radius: 10px 10px 10px 10px;
+                    margin: 30px 30px 30px 30px;
+                    float: left;
+                }
+
+                .logo {
+                    width: 48px;
+                    float: left;
+                    margin-top: 10px;
+                }
+
+                .title {
+                    height: 36px;
+                    position: relative;
+                    word-break: break-all;
+                    margin-left: 45px;
+                }
+
+                .name {
+                    font-size: 20px;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+
+                .plat-explain {
+                    height: 120px;
+                    margin-top: 20px;
+                }
+
+
+        </style>
+
+
+        <div class="row-fluid">
+
+            <div class="portlet box">
+
+                <div style="text-align: center;
+                    margin-top: 60px">
+
+                    <h1 style="font-size: 35px;"><b>NCU 生物信息学分析平台</b></h1>
+
+                </div>
+
+                <div style="max-width: 1440px;
+                    margin: 0 auto;
+                    padding-top: 40px">
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/2.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("diversity")' class="diversity">
+                                    微生物多样性分析平台</a></h3>
+                            </div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>支持MiSeq测序仪，16S、18S、ITS扩增子下机数据分析。包含：原始数据质控、PE reads拼接、OTU聚类和代表序列分类学注释。</p>
+                            </div>
+                            <a class="btn btn-primary diversity" href='@routes.HomeController.platform("diversity")'>
+                                开始分析</a>
+                        </div>
+                    </div>
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/6.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("p3bacter")' class="p3bacter">细菌基因组分析平台</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>细菌基因组分析平台。包含：细菌基因组组装、预测、注释、共线性分析、同源基因分析、进化树构建等功能。</p>
+                            </div>
+                            <a class="btn btn-primary p3bacter" href='@routes.HomeController.platform("p3bacter")'>
+                                开始分析</a>
+
+                        </div>
+                    </div>
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/7.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("metabolite")' class="metabolite">代谢组分析平台</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>代谢组在线分析平台。包含：数据预处理、差异分析、代谢物通路分析、聚类分析、PCA、OPLS-DA分析等。</p>
+                            </div>
+                            <a class="btn btn-primary metabolite" href='@routes.HomeController.platform("metabolite")'>
+                                开始分析</a>
+                        </div>
+                    </div>
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/5.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("protein")' class="protein">蛋白质组分析平台</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>蛋白质组在线分析平台。包含：数据预处理、差异分析、富集分析、聚类分析、主成分分析等。</p>
+                            </div>
+                            <a class="btn btn-primary protein" href='@routes.HomeController.platform("protein")'>
+                                开始分析</a>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/1.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("parametron")' class="parametron">
+                                    转录组分析平台</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>基于参考基因组序列和基因模型信息的转录组分析流程。包含：原始数据质控、reads比对和表达量计算。</p>
+                            </div>
+                            <a class="btn btn-primary parametron" href='@routes.HomeController.platform("parametron")'>
+                                开始分析</a>
+
+                        </div>
+                    </div>
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/4.png" class="logo" >
+                            <div class="title">
+                                <h3 class="name"><a href='@routes.HomeController.platform("meta")' class="meta">宏基因组平台</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p>宏基因组一键化分析流程，能够一键化分析、一键化出报告。</p>
+                            </div>
+                            <a class="btn btn-primary meta" href='@routes.HomeController.platform("meta")'>
+                                开始分析</a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="borders">
+                        <div style="margin-left: 2em;">
+                            <img src="/assets/images/3.png" class="logo" >
+                            <div class="title" >
+                                <h3 class="name"><a href='@routes.HomeController.platform("network")' class="network">
+                                    网络分析</a></h3></div>
+                            <br>
+                            <div class="plat-explain">
+                                <p>平台说明：</p>
+                                <p style="text-align: justify">网络分析模块。包含：关联分析(intra)、组间关联分析(inter)、偏相关分析(inter)、代谢物与菌群关联分析。</p>
+                            </div>
+                            <a class="btn btn-primary network" href='@routes.HomeController.platform("network")'>
+                                开始分析</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    }

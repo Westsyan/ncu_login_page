@@ -1,0 +1,47 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET           /                            controllers.LoginController.admin
+
+GET           /home/admin                  controllers.LoginController.login
+
+GET           /home/sign                   controllers.LoginController.sign
+
+
+GET           /home/signSuccess            controllers.LoginController.signsuccess(account:String,password:String)
+
+GET           /home/toSuccess              controllers.LoginController.toSuccess
+GET           /home/checkAccount           controllers.LoginController.checkAccount
+DELETE        /home/deleteUser             controllers.AdminController.deleteUser(id:Int)
+PUT           /home/updatePassword         controllers.AdminController.updatePassword
+GET           /unix/getDisk                controllers.AdminController.getDisk
+
+DELETE        /home/deleteTmp              controllers.AdminController.deleteTmp
+
+GET           /home/getAllUser             controllers.AdminController.getAllUser
+
+GET           /project/platformHome        controllers.AdminController.platformHome
+GET           /project/:plat               controllers.HomeController.platform(plat:String)
+GET           /back/:plat                  controllers.HomeController.adminSpecies(plat:String)
+
+GET           /password/pwdPage                controllers.PwdController.pwdPage
+GET           /password/pwdAdminPage                controllers.PwdController.pwdAdminPage
+POST           /password/updatePwd                controllers.PwdController.updatePwd
+POST           /password/resetPwd                controllers.PwdController.resetPwd
+
+
+GET           /home/logout                 controllers.LoginController.logout
+GET           /home/toIndex                controllers.LoginController.toIndex(account:String)
+
+
+GET           /backNcu/adminPage              controllers.AdminController.adminPage
+GET             /backNcu/getAllUser            controllers.AdminController.getAllUser
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file                controllers.Assets.versioned(path="/public", file: Asset)
+
+      
